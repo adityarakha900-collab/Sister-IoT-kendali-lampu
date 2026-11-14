@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Lamp IoT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>💡 Kendali lampu</h1>
+            <p>Sistem Kendali 3 Lampu Berbasis Wemos D1 Mini</p>
+            <p id="koneksi">Menghubungkan ke Wemos...</p>
+        </header>
+
+        <main class="lampu-container">
+
+            <div class="card">
+                <div class="icon">💡</div>
+                <h2>Lampu 1</h2>
+                <p class="status" id="status1">Memuat...</p>
+                <button class="on" onclick="kendali('lampu1','on')">ON</button>
+                <button class="off" onclick="kendali('lampu1','off')">OFF</button>
+            </div>
+
+            <div class="card">
+                <div class="icon">💡</div>
+                <h2>Lampu 2</h2>
+                <p class="status" id="status2">Memuat...</p>
+                <button class="on" onclick="kendali('lampu2','on')">ON</button>
+                <button class="off" onclick="kendali('lampu2','off')">OFF</button>
+            </div>
+
+            <div class="card">
+                <div class="icon">💡</div>
+                <h2>Lampu 3</h2>
+                <p class="status" id="status3">Memuat...</p>
+                <button class="on" onclick="kendali('lampu3','on')">ON</button>
+                <button class="off" onclick="kendali('lampu3','off')">OFF</button>
+            </div>
+
+        </main>
+
+        <div class="kontrol-semua">
+            <h2>Kendali Semua Lampu</h2>
+            <button class="on" onclick="kendali('semua','on')">ON SEMUA</button>
+            <button class="off" onclick="kendali('semua','off')">OFF SEMUA</button>
+        </div>
+
+        <footer>
+            <p>IoT Project | Wemos D1 Mini ESP8266</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
