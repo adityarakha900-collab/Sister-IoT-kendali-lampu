@@ -1,4 +1,3 @@
-
 // ==========================================
 // FIREBASE CONFIGURATION
 // ==========================================
@@ -41,25 +40,12 @@ const auth = getAuth(app);
 
 const koneksi = document.getElementById("koneksi");
 
-
-function pantauWemos() {
-
-    const wemosRef = ref(db, "wemos/online");
-
-    onValue(wemosRef, (snapshot) => {
-
-        const online = snapshot.val();
-
-        if (online === true || online === "online") {
-            ubahStatusKoneksi("● Wemos Terhubung");
-        } else {
-            ubahStatusKoneksi("● Wemos Tidak Terhubung");
-        }
-
-    }, (error) => {
-        console.error("Gagal membaca status Wemos:", error);
-    });
+function ubahStatusKoneksi(status) {
+    if (koneksi) {
+        koneksi.innerText = status;
+    }
 }
+
 // ==========================================
 // LOGIN ANONYMOUS FIREBASE
 // ==========================================
@@ -123,7 +109,7 @@ function pantauWemos() {
 
         const online = snapshot.val();
 
-        if (online === true) {
+        if (online === true || online === "online") {
             ubahStatusKoneksi("● Wemos Terhubung");
         } else {
             ubahStatusKoneksi("● Wemos Tidak Terhubung");
