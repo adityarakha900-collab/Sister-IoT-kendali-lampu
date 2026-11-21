@@ -41,10 +41,25 @@ const auth = getAuth(app);
 
 const koneksi = document.getElementById("koneksi");
 
-function ubahStatusKoneksi(status) {
-    koneksi.innerText = status;
-}
 
+function pantauWemos() {
+
+    const wemosRef = ref(db, "wemos/online");
+
+    onValue(wemosRef, (snapshot) => {
+
+        const online = snapshot.val();
+
+        if (online === true || online === "online") {
+            ubahStatusKoneksi("● Wemos Terhubung");
+        } else {
+            ubahStatusKoneksi("● Wemos Tidak Terhubung");
+        }
+
+    }, (error) => {
+        console.error("Gagal membaca status Wemos:", error);
+    });
+}
 // ==========================================
 // LOGIN ANONYMOUS FIREBASE
 // ==========================================
